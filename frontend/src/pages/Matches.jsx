@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 
 function Matches() {
+    const navigate = useNavigate();
+
     const [matches, setMatches] = useState([]);
     const [profile, setProfile] = useState(null);
 
@@ -332,6 +335,19 @@ function Matches() {
                                     >
                                         Send Barter Request
                                     </button>
+
+                                <button
+    className="chat-button"
+    onClick={() =>
+        navigate("/chat", {
+            state: {
+                user: match
+            }
+        })
+    }
+>
+    💬 Chat
+</button>
 
                                 </div>
 

@@ -12,6 +12,7 @@ import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import Matches from "./pages/Matches";
 import Requests from "./pages/Requests";
+import Chat from "./pages/Chat";
 
 import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -84,6 +85,15 @@ function AppContent() {
                         </ProtectedRoute>
                     }
                 />
+
+                <Route
+    path="/chat"
+    element={
+        <ProtectedRoute>
+            <Chat />
+        </ProtectedRoute>
+    }
+/>
 
             </Routes>
         </>
