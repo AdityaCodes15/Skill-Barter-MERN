@@ -3,7 +3,7 @@ const Message = require("../models/Message");
 // Send a message
 const sendMessage = async (req, res) => {
     try {
-        const senderId = req.user.userId;
+        const senderId = req.userId;
         const { receiverId, message } = req.body;
 
         if (!receiverId || !message?.trim()) {
@@ -41,7 +41,7 @@ const sendMessage = async (req, res) => {
 // Get conversation between two users
 const getConversation = async (req, res) => {
     try {
-        const currentUserId = req.user.userId;
+        const currentUserId = req.userId;
         const { userId } = req.params;
 
         const messages = await Message.find({
